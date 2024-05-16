@@ -1,0 +1,27 @@
+<div class="subnav">
+  <button mat-button class="nav-button" [routerLink]="['/menu/orders/add']">Hozzáad</button>
+</div>
+<div class="container">
+  <h1 class="title">Rendelések</h1>
+  <div class="list-container" *ngIf="!errorMessage; else error">
+    <div class="list" *ngFor="let order of orders">
+      <h1>{{order.customerName}}</h1>
+      <hr>
+      <div class="space-between">
+        <h2 *ngIf="order.customerEmail">{{order.customerEmail}}</h2>
+        <h2>{{order.customerPhone}}</h2>
+      </div>
+      <h2>{{order.orderDate}}</h2>
+      <hr>
+      <div class="space-between">
+        <h2>{{order.product.name}}</h2>
+        <h2>{{order.amount}} db</h2>
+      </div>
+    </div>
+  </div>
+  <ng-template #error>
+    <div>
+      <h1>{{errorMessage}}</h1>
+    </div>
+  </ng-template>
+</div>

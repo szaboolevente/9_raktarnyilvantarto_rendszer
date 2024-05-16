@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="form-container">
+    <div class="title">
+      Termék hozzáadás
+    </div>
+    <form [formGroup]="productForm" action="">
+      <div class="select-container">
+        <div class="select-item">
+          <mat-form-field class="form-field">
+            <mat-label>Alkatrészek</mat-label>
+            <mat-select formControlName="part">
+              <mat-option *ngFor="let part of parts" [value]="part">{{part.id}} - {{part.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label>Darabszám</mat-label>
+            <input type="number" min="1" matInput formControlName="partAmount"/>
+            <mat-error>Kötelező a darabszámot megadni!</mat-error>
+          </mat-form-field>
+        </div>
+        <button class="button" mat-raised-button color="accent" (click)="addPart()">Hozzáad</button>
+      </div>
+      <hr>
+      <div class="select-container">
+        <div class="select-item">
+          <mat-form-field class="form-field">
+            <mat-label>Termékek</mat-label>
+            <mat-select formControlName="prod">
+              <mat-option *ngFor="let prod of products" [value]="prod">{{prod.id}} - {{prod.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label>Darabszám</mat-label>
+            <input type="number" min="1" matInput formControlName="prodAmount"/>
+            <mat-error>Kötelező a darabszámot megadni!</mat-error>
+          </mat-form-field>
+        </div>
+        <button class="button" mat-raised-button color="accent" (click)="addProduct()">Hozzáad</button>
+      </div>
+      <hr>
+      <mat-form-field class="form-field">
+        <mat-label>Megnevezés</mat-label>
+        <input type="text" matInput maxlength="256" #name formControlName="name"/>
+        <mat-hint align="end">{{name.value.length}}/{{name.maxLength}}</mat-hint>
+      </mat-form-field><br>
+      <button class="add-button" mat-raised-button color="primary" (click)="addNewProduct()">Termék felvétel</button>
+    </form>
+  </div>
+  <hr>
+  <div class="list">
+    <div class="select-items" *ngIf="addedParts.length > 0">
+      <h1>Hozzáadott alkatrészek</h1>
+      <hr>
+      <ul>
+        <li *ngFor="let part of addedParts">{{part.part.id}} - {{part.part.name}} - {{part.amount}} db</li>
+      </ul>
+    </div>
+    <hr *ngIf="addedParts.length > 0 && addedProds.length > 0">
+    <div class="select-items" *ngIf="addedProds.length > 0">
+      <h1>Hozzáadatott termékek</h1>
+      <hr>
+      <ul>
+        <li *ngFor="let prod of addedProds">{{prod.requiredProduct.id}} - {{prod.requiredProduct.name}} - {{prod.amount}} db</li>
+      </ul>
+    </div>
+  </div>
+</div>

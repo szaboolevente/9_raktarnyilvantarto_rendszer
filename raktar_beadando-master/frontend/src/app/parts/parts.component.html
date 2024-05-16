@@ -1,0 +1,25 @@
+<div class="subnav">
+  <button mat-button class="nav-button" [routerLink]="['/menu/parts/add']">Hozzáad</button>
+  <button mat-button class="nav-button" [routerLink]="['/menu/parts/increase']">Darabszám növelés</button>
+</div>
+<div class="container">
+  <h1 class="title">Alkatrészek</h1>
+  <div class="list-container" *ngIf="!errorMessage; else error">
+    <div class="list" *ngFor="let part of parts">
+      <div class="space-between">
+        <h1><strong>{{part.name}}</strong></h1>
+        <h2>{{part.amount}} db</h2>
+      </div><hr>
+      <div class="space-between">
+        <h2>Raktári szám: {{part.id}}</h2>
+        <h2>{{part.receiptDate}}</h2>
+      </div>
+      <button mat-raised-button color="warn" class="delete-button" (click)="deletePart(part.id)">Törlés</button>
+    </div>
+  </div>
+  <ng-template #error>
+    <div>
+      <h1>{{errorMessage}}</h1>
+    </div>
+  </ng-template>
+</div>

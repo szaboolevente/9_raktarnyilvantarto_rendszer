@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="form-container">
+    <div class="title">
+      Rendelés hozzáadás
+    </div>
+    <form [formGroup]="orderForm" (ngSubmit)="addOrder()">
+      <mat-form-field class="form-field">
+        <mat-label>Rendelő neve:</mat-label>
+        <input type="text" matInput maxlength="256" #name formControlName="customerName"/>
+        <mat-hint align="end" class="hint">{{name.value.length}}/{{name.maxLength}}</mat-hint>
+        <mat-error>A rendelő nevének megadása kötelező!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Rendelő email címe:</mat-label>
+        <input type="email" matInput formControlName="customerEmail"/>
+        <mat-error>A rendelő email címének validnak kell lenni!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Rendelő telefon száma:</mat-label>
+        <input type="text" matInput maxlength="12" #phone formControlName="customerPhone"/>
+        <mat-hint align="end" class="hint">{{phone.value.length}}/{{phone.maxLength}}</mat-hint>
+        <mat-error>A rendelő telefonszámának megadása kötelező és validnak kell lenni!</mat-error>
+      </mat-form-field>
+      <hr>
+      <mat-form-field class="form-field">
+        <mat-label>Termék megnevezése:</mat-label>
+        <mat-select formControlName="product">
+          <mat-option *ngFor="let product of products" [value]="product">{{product.id}} - {{product.name}}</mat-option>
+        </mat-select>
+        <mat-error>Termék megadása kötelező!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Rendelés leadásának ideje</mat-label>
+        <input type="date" matInput formControlName="orderDate"/>
+        <mat-error>Kötelező rendelés leadási időt megadni!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Mennyiség</mat-label>
+        <input type="number" min="1" matInput formControlName="amount"/>
+        <mat-error>Kötelező mennyiséget megadni és 1-nek, vagy annál nagyobbnak kell lenni!</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!orderForm.valid">Hozzáadás</button>
+    </form>
+  </div>
+</div>

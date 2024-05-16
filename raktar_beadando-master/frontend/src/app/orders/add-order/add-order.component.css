@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  padding: 40px 0px;
+  text-align: center;
+}
+
+.form-container {
+  margin: auto;
+  max-width: 650px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.hint {
+  font-size: 12px;
+}
+
+.form-field {
+  width: 90%;
+  font-size: 20px;
+  margin: 0.9em;
+}
+
+.form-container hr {
+  background-color: #5C6BC0;
+  height: 3px;
+  border-radius: 50%;
+  border: none;
+  width: 99%;
+}

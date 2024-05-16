@@ -1,0 +1,22 @@
+Általános leírás
+	A cél egy képzeletbeli üzem raktározási problémáinak számítógépes segítése. 
+	A cég egy szerelő üzem, amely a raktáron lévő alkatrészekből késztermékeket szerel. 
+	A szoftvert a gyártást vezető mérnök kezeli.
+
+   Felhasználási esetek
+	Raktár nyilvántartás
+
+	   Raktári egységek felvétele, törlése. Információk: raktári szám, bevételezés ideje, hány darab van a raktárban az adott alkatrészből. 
+	   Az alkatrészek feltöltését a db-szám növelésével elegendő megoldani.
+
+	Gyártmány menedzselés
+
+	   Gyártmányok létrehozása, törlése. Egy gyártmány adott számú raktári egységekből áll. 
+	   Pl ha a gyártmány egy kisautó, akkor kell hozzá 1 db motor, 1 db test, 4 db kerék, 12 db M6-os csavar stb. 
+	   Az alkatrészek neveit a rendszer a raktári készletek alapján ajánlja fel. Egy új gyártmány nemcsak alap raktári készletekből állhat hanem más gyártmányokból is.
+
+	Megrendelés menedzselés
+
+	   Az üzem megrendelést kap egy adott termékre. A megrendelő alapadatait le kell tárolni. 
+	   Ha pl 10 db kisautó a megrendelés akkor 10db motor, 40 db kerék és 120 db csavar szükséges a raktáron. 
+	   Ha a részegységekből nincs elegendő a raktáron, a szoftver jelzi és nem engedi a megrendelés létrehozását. A megrendelése listázására is van lehetőség.

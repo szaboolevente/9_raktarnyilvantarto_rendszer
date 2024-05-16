@@ -1,0 +1,10 @@
+<div class="navbar">
+  <div>
+    <button mat-button class="nav-button" [routerLink]="['/menu/parts']">Alkatrészek</button>
+    <button mat-button class="nav-button" [routerLink]="['/menu/products']">Termékek</button>
+    <button mat-button class="nav-button" [routerLink]="['/menu/orders']">Rendelések</button>
+  </div>
+  <div>
+    <button mat-button class="nav-button" (click)="logout()">Kijelentkezés</button>
+  </div>
+</div>

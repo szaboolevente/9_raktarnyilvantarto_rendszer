@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="form-container">
+    <div class="title">
+      Alkatrész hozzáadás
+    </div>
+    <form [formGroup]="partForm" (ngSubmit)="addPart()">
+      <mat-form-field class="form-field">
+        <mat-label>Megnevezés</mat-label>
+        <input type="text" maxlength="256" matInput #name formControlName="name"/>
+        <mat-hint class="hint" align="end">{{name.value.length}}/{{name.maxLength}}</mat-hint>
+        <mat-error>Kötelező megadni az alkatrész megnevezését!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Bevételezés ideje</mat-label>
+        <input type="date" matInput formControlName="date"/>
+        <mat-error>Kötelező megadni a bevézelezés idejét!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Darabszám</mat-label>
+        <input type="number" matInput formControlName="amount"/>
+        <mat-error>A darabszámnak 1-nak, vagy annál nagyobb számnak kell lennie!</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" [disabled]="!this.partForm.valid">Hozzáad</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="subnav">
+  <button mat-button class="nav-button" [routerLink]="['/menu/products/add']">Hozzáad</button>
+</div>
+<div class="container">
+  <h1 class="title">Termékek</h1>
+  <div class="list-container" *ngIf="!errorMessage; else error">
+    <div class="list" *ngFor="let product of products">
+      <h1><strong>{{product.name}}</strong></h1>
+      <hr>
+      <div *ngIf="product.parts.length > 0">
+        <br>
+        <h1><u>Alkatrészek:</u></h1>
+        <hr>
+      </div>
+      <div *ngFor="let part of product.parts">
+        <div class="space-between">
+          <h2>{{part.part.name}}</h2>
+          <h2>{{part.amount}} db</h2>
+        </div>
+        <h2>{{part.part.receiptDate}}</h2>
+        <hr>
+      </div>
+      <div *ngIf="product.requiredProducts.length > 0">
+        <br>
+        <h1><u>Felépítő termékek:</u></h1>
+        <hr>
+      </div>
+      <div *ngFor="let rp of product.requiredProducts">
+        <div class="space-between">
+          <h2>{{rp.requiredProduct.name}}</h2>
+          <h2>{{rp.amount}} db</h2>
+        </div>
+        <hr>
+      </div>
+      <button mat-raised-button color="warn" class="delete-button" (click)="deleteProduct(product.id)">Törlés</button>
+    </div>
+  </div>
+  <ng-template #error>
+    <div>
+      <h1>{{errorMessage}}</h1>
+    </div>
+  </ng-template>
+</div>

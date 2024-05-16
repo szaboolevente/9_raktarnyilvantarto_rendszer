@@ -1,0 +1,21 @@
+<div class="subnav">
+  <button mat-button class="nav-button" [routerLink]="['/signup']">Regisztráció</button>
+</div>
+<div class="container">
+  <div class="form-container">
+    <h1 class="title">Bejelentkezés</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field class="form-field">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email"/>
+        <mat-error>Az email cím megadása kötelező!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Jelszó</mat-label>
+        <input type="password" matInput formControlName="password"/>
+        <mat-error>A jelszó megadása kötelező!</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Bejelentkezés</button>
+    </form>
+  </div>
+</div>

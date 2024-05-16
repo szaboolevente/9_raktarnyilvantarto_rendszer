@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  padding: 40px 0px;
+  text-align: center;
+}
+
+.form-container {
+  margin: auto;
+  max-width: 800px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.hint {
+  font-size: 12px;
+}
+
+.form-field {
+  width: 70%;
+  font-size: 20px;
+  margin: 0.9em;
+}
+
+.button {
+  font-size: 18px;
+  max-height: 4ch;
+}
+
+.add-button {
+  margin: 12px auto;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-item {
+  flex-grow: 1;
+  max-width: 80%;
+}
+
+.list {
+  margin: auto;
+  width: 70%;
+  display: flex;
+}
+
+.select-items {
+  flex: 1 1 50%;
+}
+
+.select-items > ul > li {
+  list-style: none;
+  font-size: 18px;
+  margin: 20px auto;
+}

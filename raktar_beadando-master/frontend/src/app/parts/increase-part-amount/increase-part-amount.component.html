@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="title">Alkatrészek mennyiségének növelése</h1>
+  <div class="list-container" *ngIf="!errorMessage; else error">
+    <div class="list" *ngFor="let part of parts">
+      <div class="space-between">
+        <h1><strong>{{part.name}}</strong></h1>
+        <h1>{{part.amount}} db</h1>
+      </div>
+      <hr>
+      <div>
+        <mat-form-field class="input-field">
+          <mat-label>Mennyiség változtatás</mat-label>
+          <input type="number" matInput #amount/>
+        </mat-form-field><br>
+        <button mat-raised-button color="accent" class="change-button" (click)="increaseAmount(part.id, amount)">Hozzáadás / Elvonás</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #error>
+    <div>
+      <h1>{{errorMessage}}</h1>
+    </div>
+  </ng-template>
+</div>

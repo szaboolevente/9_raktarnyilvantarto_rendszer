@@ -1,0 +1,36 @@
+<div class="subnav">
+  <button mat-button class="nav-button" [routerLink]="['/login']">Bejelentkezés</button>
+</div>
+<div class="container">
+  <div class="form-container">
+    <h1 class="title">Regisztráció</h1>
+    <form [formGroup]="regForm" (ngSubmit)="signup()">
+      <mat-form-field class="form-field">
+        <mat-label>Neve</mat-label>
+        <input type="text" matInput maxlength="96" formControlName="name"/>
+        <mat-error>A név megadása kötelező!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email"/>
+        <mat-error>Az email cím megadása kötelező!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Email újra</mat-label>
+        <input type="email" matInput formControlName="emailAgain"/>
+        <mat-error>Az email cím ismételt megadása kötelező!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Jelszó</mat-label>
+        <input type="password" matInput minlength="6" maxlength="128" formControlName="password"/>
+        <mat-error>A jelszó megadása kötelező!<br>A karakterek hossza 6 és 128 között kell legyen!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Jelszó újra</mat-label>
+        <input type="password" matInput minlength="6" maxlength="128" formControlName="passwordAgain"/>
+        <mat-error>A jelszó ismételt megadása kötelező!</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!regForm.valid">Bejelentkezés</button>
+    </form>
+  </div>
+</div>
